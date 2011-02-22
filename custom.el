@@ -9,12 +9,11 @@
  '(css-indent-offset 2)
  '(cua-enable-cua-keys nil)
  '(cua-mode t nil (cua-base))
- '(cursor-type 'bar)
+ '(cursor-type (quote bar) t)
  '(erc-autojoin-channels-alist (quote (("freenode.net"))))
  '(erc-autojoin-mode t)
  '(erc-modules (quote (autojoin button completion fill irccontrols list log match menu move-to-prompt netsplit networks noncommands readonly ring stamp track)))
- '(exec-path (quote ("/Users/timcharper/bin" "/usr/bin" "/bin" "/usr/sbin" "/sbin" "/usr/local/bin" "/usr/X11/bin" "/usr/local/git/bin" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/local/texlive/2009/bin/universal-darwin/" "/opt/local/bin")))
- '(ffap-machine-p-known (quote reject)) ; so ido-use-filename-at-point doesn't try to ping strange domains
+ '(exec-path (quote ("/Users/bmabey/bin" "/usr/bin" "/bin" "/usr/sbin" "/sbin" "/usr/local/bin" "/usr/X11/bin" "/usr/local/git/bin" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/local/texlive/2009/bin/universal-darwin/" "/opt/local/bin")))
  '(global-auto-revert-mode t)
  '(gnuserv-program (concat exec-directory "/gnuserv"))
  '(hl-paren-background-colors nil)
@@ -32,7 +31,8 @@
  '(quack-remap-find-file-bindings-p nil)
  '(rails-indent-and-complete nil)
  '(ruby-electric-expand-delimiters-list (quote (123 91 40 39 34 96)))
- '(safe-local-variable-values (quote ((ack-arguments "--ignore-dir=ruby") (*textmate-gf-exclude* . "/\\.|vendor|ruby/gems|classes|fixtures|tmp|log|build|\\.xcodeproj|\\.nib|\\.framework|\\.app|\\.pbproj|\\.pbxproj|\\.xcode|\\.xcodeproj|\\.bundle|\\.pyc") (ruby-compilation-executable . "ruby") (ruby-compilation-executable . "ruby1.8") (ruby-compilation-executable . "ruby1.9") (ruby-compilation-executable . "rbx") (ruby-compilation-executable . "jruby"))))
+ '(rvm-executable "~/Developer/.rvm/bin/rvm")
+ '(safe-local-variable-values (quote ((textmate-gf-exclude . "(/|^)(\\.+[^/]+|vendor|tmp|lib|log|classes|model-library|filtered-datasets|data|build)($|/)|(\\.xcodeproj|\\.nib|\\.framework|\\.app|\\.pbproj|\\.pbxproj|\\.xcode|\\.xcodeproj|\\.bundle|\\.pyc)(/|$)") (textmate-project-roots ".dir-locals.el") (ack-arguments "--ignore-dir=ruby") (*textmate-gf-exclude* . "/\\.|vendor|ruby/gems|classes|fixtures|tmp|log|build|\\.xcodeproj|\\.nib|\\.framework|\\.app|\\.pbproj|\\.pbxproj|\\.xcode|\\.xcodeproj|\\.bundle|\\.pyc") (ruby-compilation-executable . "ruby") (ruby-compilation-executable . "ruby1.8") (ruby-compilation-executable . "ruby1.9") (ruby-compilation-executable . "rbx") (ruby-compilation-executable . "jruby"))))
  '(sentence-end-double-space nil)
  '(sh-basic-offset 2)
  '(sh-indentation 2)
@@ -45,7 +45,17 @@
  '(tls-program (quote ("openssl s_client -connect %h:%p -no_ssl2 -ign_eof")))
  '(toolbar-mail-reader (quote gnus))
  '(toolbar-news-reader (quote gnus))
- '(truncate-lines t))
+ '(truncate-lines t)
+ '(viper-ESC-moves-cursor-back nil)
+ '(viper-auto-indent nil)
+ '(viper-emacs-state-cursor-color "")
+ '(viper-ex-style-editing nil)
+ '(viper-ex-style-motion nil)
+ '(viper-expert-level (quote 5))
+ '(viper-insert-state-cursor-color "")
+ '(viper-replace-overlay-cursor-color "")
+ '(viper-shift-width 2)
+ '(viper-vi-style-in-minibuffer nil))
 
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
@@ -56,6 +66,7 @@
 
 (load (concat dotfiles-dir "initializers.el"))
 
+(color-theme-cobalt)
 (setenv "PATH" (format "%s/bin:%s/Developer/bin:%s"
                        (getenv "HOME")
                        (getenv "HOME")
