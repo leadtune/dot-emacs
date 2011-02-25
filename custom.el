@@ -28,6 +28,7 @@
  '(mouse-wheel-progressive-speed t)
  '(mouse-wheel-scroll-amount (quote (1 ((shift) . 1) ((control)))))
  '(preview-transparent-color "black")
+ '(quack-programs (quote ("mzscheme" "bigloo" "csi" "csi -hygienic" "gosh" "gracket" "gsi" "gsi ~~/syntax-case.scm -" "guile" "kawa" "mit-scheme" "racket" "racket -il typed/racket" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi")))
  '(quack-remap-find-file-bindings-p nil)
  '(rails-indent-and-complete nil)
  '(ruby-electric-expand-delimiters-list (quote (123 91 40 39 34 96)))
