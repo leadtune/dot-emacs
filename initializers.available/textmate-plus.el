@@ -149,5 +149,13 @@
                      (filter-buffer-substring p1 p2)
                      (filter-buffer-substring (point-min) p1)))))
       (insert new-string))))
+
+(defun insert-file-basename ()
+  (interactive)
+  (insert
+   (replace-regexp-in-string "\\..*$"
+                             ""
+                             (file-name-nondirectory buffer-file-name))))
+
 (global-set-key (kbd "C-s-t") 'textmate-plus-quick-find-file)
 (global-set-key (kbd "<C-s-268632084>") 'textmate-plus-quick-find-file)

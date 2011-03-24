@@ -55,3 +55,12 @@
     (ad-set-arg 2
                 (concat (format "%2d %s" (+ 1 item-index) item)))
     ad-do-it))
+
+;; garbage?
+
+;; (add-to-list 'ac-sources 'ac-source-yasnippet)
+;; (add-to-list 'ac-sources 'ac-source-words-in-same-mode-buffers)
+;; (setq-default ac-sources ac-sources)
+
+(define-key ac-menu-map (kbd "?") 'ac-last-persist-help)
+

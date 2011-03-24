@@ -1,0 +1,5 @@
+(add-to-list 'load-path "~/.emacs.d/vendor/emacs-test-unit/")
+(add-to-list 'load-path "~/.emacs.d/vendor/emacs-load-relative/")
+(add-to-list 'load-path "~/.emacs.d/vendor/emacs-loc-changes/")
+(add-to-list 'load-path "~/.emacs.d/vendor/emacs-dbgr/")
+(require 'dbgr)

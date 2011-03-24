@@ -248,17 +248,14 @@
     (buffer-string)))
 
 
-(defconst textmate-case/boundary-regex "[^a-zA-Z0-9_]")
-
 (defun textmate-case/toggle (arg)
   "Toggles between camelCase, PascalCase, and snake_case"
   (interactive "p")
-  (let* ((start (progn (search-backward-regexp textmate-case/boundary-regex) (forward-char)  (point)))
-         (end   (progn (search-forward-regexp  textmate-case/boundary-regex) (backward-char) (point)))
-         (word  (filter-buffer-substring start end t))
+  (let* ((bounds (bounds-of-thing-at-point 'symbol))
+         (word   (filter-buffer-substring (car bounds) (cdr bounds) t))
          (target-case-format (cond ((textmate-case/snake_case-p word) 'camelCase)
-                                   ((textmate-case/PascalCase-p word) 'snake_case)
-                                   ((textmate-case/camelCase-p word)  'PascalCase))))
+                                   ((textmate-case/camelCase-p word)  'PascalCase)
+                                   ((textmate-case/PascalCase-p word) 'snake_case))))
     (insert
      (textmate-case/convert-case target-case-format
                                  word)))
@@ -266,3 +263,4 @@
 
 (define-key *textmate-mode-map* (kbd "C-c t _") 'textmate-case/toggle)
 (define-key *textmate-mode-map* (kbd "C-c t -") 'textmate-case/toggle)
+(define-key *textmate-mode-map* (kbd "s-_") 'textmate-case/toggle)

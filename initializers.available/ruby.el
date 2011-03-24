@@ -32,7 +32,7 @@
      (define-key ruby-mode-map (kbd "TAB") nil)
      (define-key ruby-mode-map (kbd "M-TAB") 'inf-ruby-bond-complete-or-tab)
 
-     (rvm-use rvm-default-ruby-name "*default*")
+     ;; (rvm-use rvm-default-ruby-name "*default*")
 
      (defun inf-ruby187 ()
        (interactive)

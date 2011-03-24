@@ -8,6 +8,7 @@
       '(emacs-lisp-mode
         clojure-mode
         scheme-mode
+        sql-mode
         R-mode
         ruby-mode
         html-mode

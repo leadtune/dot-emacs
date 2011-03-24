@@ -73,6 +73,45 @@
                 ido-file-completion-map
                 ido-file-dir-completion-map)))
 
+;; ibuffer integration
+(defvar ido-invoke-ibuffer-buffer-names
+  nil
+  "a list of buffers that was in the ido list")
+
+(defun ido-invoke-ibuffer-mode-switch ()
+  (interactive)
+  (let ((filters (format "^\\(%s\\)$" (mapconcat (lambda (buffer-name) (regexp-quote buffer-name))
+                                                 ido-invoke-ibuffer-buffer-names
+                                                 "\\|")))
+        (buffer-name "*ido ibuffer list*")
+        (message-log-max))
+
+    (when (get-buffer buffer-name) (kill-buffer buffer-name))
+    (ibuffer nil buffer-name)
+    (let ((old-msg (current-message)))
+      (ibuffer-filter-by-name filters)
+      (message "%s" old-msg))))
+
+(defun ido-invoke-ibuffer-mode ()
+  (interactive)
+  (setq ido-invoke-ibuffer-buffer-names ido-cur-list)
+  (setq fallback 'ido-invoke-ibuffer-mode-switch)
+  (setq ido-exit 'fallback)
+  (ido-exit-minibuffer))
+
+;; (ibuffer nil "test" nil nil nil
+;;          (list (list "ido"
+;;                      (cons 'name "^\\(ido*\\)\\|textmate"))))
+
+;; (ibuffer nil "test" nil nil nil
+;;          '(("ido" (name . "^\\(\\*Messages\\*\\|ido\\.el\\.gz\\|\\*Help\\*\\|inf-ruby\\.el\\|\\*scratch\\*\\|textmate-plus\\.el\\|\\*Completions\\*\\|ido\\.el\\|test\\)$"))))
+
+;; (ibuffer nil "test" nil nil nil
+;;          '(("ido" (name . "*scratch*"))))
+
+(defadvice ido-init-completion-maps (after ido-init-completion-maps-with-ibuffer activate)
+  (define-key ido-buffer-completion-map (kbd "C-l") 'ido-invoke-ibuffer-mode))
+
 ;; Display ido results vertically, rather than horizontally
 (setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
 

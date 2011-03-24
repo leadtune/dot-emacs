@@ -65,6 +65,7 @@
 (define-key viper-insert-basic-map (kbd "C-d") nil)
 (define-key viper-insert-basic-map (kbd "C-t") nil)
 (define-key viper-insert-basic-map (kbd "TAB") nil)
+(define-key viper-insert-basic-map (kbd "C-y") nil)
 (define-key viper-insert-basic-map (kbd "<tab>") nil)
 
 (define-key viper-insert-basic-map (kbd "DEL") nil)

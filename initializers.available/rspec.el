@@ -24,7 +24,7 @@
 (defun rspec-run-single-file (spec-file &rest opts)
   "Runs spec with the specified options"
   (rspec-register-verify-redo (cons 'rspec-run-single-file (cons spec-file opts)))
-  (compile (concat "rspec " spec-file " " (rspec-format-opts opts)) t)
+  (compile (concat "bundle exec spec " spec-file " " (rspec-format-opts opts)) t)
   (end-of-buffer-other-window 0))
 
 (defun rspec-toggle-spec-and-target-other-window ()
