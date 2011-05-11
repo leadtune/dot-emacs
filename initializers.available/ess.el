@@ -32,10 +32,10 @@
 ;; http://www.kieranhealy.org/blog/archives/2009/10/12/make-shift-enter-do-a-lot-in-ess/
 ;; Use shift-enter to split window & launch R (if not running), execute highlighted
 ;; region (if R running & area highlighted), or execute current line
-;; (and move to next line, skipping comments). Nice. 
+;; (and move to next line, skipping comments). Nice.
 ;; See http://www.emacswiki.org/emacs/EmacsSpeaksStatistics,
 ;; FelipeCsaszar. Adapted to spilit vertically instead of
-;; horizontally. 
+;; horizontally.
 
 (setq ess-ask-for-ess-directory nil)
 (setq ess-local-process-name "R")
@@ -60,7 +60,7 @@
     (my-ess-start-R)
     (if (and transient-mark-mode mark-active)
     (call-interactively 'ess-eval-region)
-      (call-interactively 'ess-eval-line-and-step)))
+      (call-interactively 'ess-eval-line)))
   (add-hook 'ess-mode-hook
         '(lambda()
            (local-set-key [(shift return)] 'my-ess-eval)))
