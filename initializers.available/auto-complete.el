@@ -33,23 +33,27 @@
 
 (define-key ac-completing-map (kbd "s-;") 'ac-expand)
 (define-key ac-completing-map (kbd "ESC") 'ac-stop)
+
+(define-key ac-completing-map (kbd "/") 'ac-isearch)
+
 (define-key ac-menu-map (kbd "C-n") 'ac-next)
 (define-key ac-menu-map (kbd "C-p") 'ac-previous)
 (define-key ac-menu-map (kbd "C-v") 'ac-quick-help-scroll-down)
 (define-key ac-menu-map (kbd "M-v") 'ac-quick-help-scroll-up)
 
-(dotimes (i 9)
-  (define-key ac-menu-map (number-to-string i) (intern (format "ac-complete-%d" i))))
-
-;; Hack auto-complete to show numbers (for easier selection...)
-
-(defadvice popup-preferred-width (around popup-preferred-width-adjust-for-prefix activate)
-  ad-do-it
-  (setq ad-return-value (+ 4 ad-return-value)))
-
-(defadvice popup-set-line-item (around popup-set-line-item-with-number activate)
-  (let ((item (ad-get-arg 2))
-        (item-index (ad-get-arg 3)))
-    (ad-set-arg 2
-                (concat (format "%2d %s" (+ 1 item-index) item)))
-    ad-do-it))
+;;;
+;;;(dotimes (i 9)
+;;;  (define-key ac-menu-map (number-to-string i) (intern (format "ac-complete-%d" i))))
+;;;
+;;;;; Hack auto-complete to show numbers (for easier selection...)
+;;;
+;;;(defadvice popup-preferred-width (around popup-preferred-width-adjust-for-prefix activate)
+;;;  ad-do-it
+;;;  (setq ad-return-value (+ 4 ad-return-value)))
+;;;
+;;;(defadvice popup-set-line-item (around popup-set-line-item-with-number activate)
+;;;  (let ((item (ad-get-arg 2))
+;;;        (item-index (ad-get-arg 3)))
+;;;    (ad-set-arg 2
+;;;                (concat (format "%2d %s" (+ 1 item-index) item)))
+;;;    ad-do-it))
