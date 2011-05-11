@@ -52,3 +52,6 @@
 [submodule "vendor/auto-complete"]
 	path = vendor/auto-complete
 	url = git://github.com/timcharper/auto-complete.git
+[submodule "vendor/matlab-emacs"]
+	path = vendor/matlab-emacs
+	url = https://github.com/ruediger/matlab-emacs.git
