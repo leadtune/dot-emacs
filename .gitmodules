@@ -55,3 +55,6 @@
 [submodule "vendor/matlab-emacs"]
 	path = vendor/matlab-emacs
 	url = https://github.com/ruediger/matlab-emacs.git
+[submodule "vendor/midje-mode"]
+	path = vendor/midje-mode
+	url = https://github.com/dnaumov/midje-mode.git
