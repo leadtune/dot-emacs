@@ -4,10 +4,8 @@
 ;; (global-set-key (kbd "s-;") 'dabbrev-expand)
 (global-set-key (kbd "s-b") 'switch-to-buffer)
 
-(defun yank-location-with-filenum ()
-  (interactive)
-  "Yank (to clipboard) the current location, in /path/to/file:line format"
-  (let* ((root (textmate-project-root))
+(defun tim/path-with-line (&optional root)
+   (let* ((root (or root (textmate-project-root)))
          (filename (buffer-file-name))
          (local-filename (if root
                              (replace-regexp-in-string (format "^%s" (regexp-quote root)) "./" filename)
@@ -17,6 +15,39 @@
                            (line-number-at-pos))))
     (message "%s" location)
     (kill-new location)))
+
+(defun yank-path-with-line ()
+  (interactive)
+  "Yank (to clipboard) the current location, in /path/to/file:line format"
+  (let ((location (tim/path-with-line)))
+    (message "%s" location)
+    (kill-new location)))
+
+(defun rspec-yank-command ()
+  (interactive)
+  (let* ((root (or (rspec-project-root) (textmate-project-root)))
+         (command (format "cd %S; be rspec %s" root (tim/path-with-line root))))
+    (message "%s" command)
+    (kill-new command)))
+
+
+(defun cuc-yank-command ()
+  (interactive)
+  (let ((command (format "cd %S; be cucumber %s" (textmate-project-root) (tim/path-with-line))))
+    (message "%s" command)
+    (kill-new command)))
+
+(eval-after-load 'rspec-mode
+  '(define-key
+     rspec-mode-keymap
+     (kbd "<C-s-pause>") ;; Control-command-r ... lame how emacs gets these remapped like this
+     'rspec-yank-command))
+
+(eval-after-load 'feature-mode
+  '(define-key
+     feature-mode-map
+     (kbd "<C-s-pause>") ;; Control-command-r ... lame how emacs gets these remapped like this
+     'cuc-yank-command))
 
 
 (defun open-emacs-d ()
