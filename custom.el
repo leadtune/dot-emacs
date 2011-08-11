@@ -96,6 +96,7 @@
                        (getenv "HOME")
                        (getenv "PATH")))
 
+(rvm-use "1.9.2" "*default*")
 (server-start)
 (color-theme-ir-black)
 (icomplete-mode t)
