@@ -59,23 +59,23 @@
 ;; Increment decimal a number under the point
 ;; doesn't exactly work with negative numbers.
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;;;;;;;;;;;;;;;;;;;
-(defun increment-number-at-point ()
-  (interactive)
+(defun increment-number-at-point (arg)
+  (interactive "p")
   (skip-chars-backward "0123456789")
   (or (looking-at "[0123456789]+")
       (error "No number at point"))
-  (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
+  (replace-match (number-to-string (+ (string-to-number (match-string 0)) (or arg 1)))))
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;;;;;;;;;;;;;;;;;;;
 ;; Decrement decimal a number under the point
 ;; doesn't exactly work with negative numbers.
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;;;;;;;;;;;;;;;;;;;
-(defun decrement-number-at-point ()
-  (interactive)
+(defun decrement-number-at-point (arg)
+  (interactive "p")
   (skip-chars-backward "0123456789")
   (or (looking-at "[0123456789]+")
       (error "No number at point"))
-  (replace-match (number-to-string (1- (string-to-number (match-string 0))))))
+  (replace-match (number-to-string (- (string-to-number (match-string 0)) (or arg 1)))))
 
 (global-set-key (kbd "C-c +") 'increment-number-at-point)
 (global-set-key (kbd "C-c -") 'decrement-number-at-point)
