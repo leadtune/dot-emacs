@@ -208,12 +208,13 @@ completions are listed [__UNIMPLEMENTED__]."
 (add-hook 'ess-mode-hook
         (lambda ()
           (add-to-list 'ac-sources 'ac-source-R)
-          (make-local-variable ac-ignore-case)
+          (make-local-variable 'ac-ignore-case)
           (setq ac-ignore-case nil)))
+
 (add-hook 'inferior-ess-mode-hook
         (lambda ()
           (add-to-list 'ac-sources 'ac-source-R)
-          (make-local-variable ac-ignore-case)
+          (make-local-variable 'ac-ignore-case)
           (setq ac-ignore-case nil)))
 
 (provide 'ac-R)
