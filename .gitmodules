@@ -52,3 +52,9 @@
 [submodule "vendor/auto-complete"]
 	path = vendor/auto-complete
 	url = git://github.com/timcharper/auto-complete.git
+[submodule "vendor/evil"]
+	path = vendor/evil
+	url = git://gitorious.org/evil/evil.git
+[submodule "vendor/evil-surround"]
+	path = vendor/evil-surround
+	url = git://github.com/timcharper/evil-surround.git
