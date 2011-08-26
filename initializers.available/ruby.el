@@ -28,13 +28,28 @@
                ((file-exists-p (concat directory "Gemfile")) directory)
                (t (bundler-find-Gemfile-root (file-name-directory (directory-file-name directory)))))))
 
+     (defun bundler/shell-command-to-string (command on-error)
+       "Execute shell command COMMAND and return its output as a string.
+If non-zero exit, call on-error lambda with exitstatus as argument"
+       (let* (exitstatus
+              (output (with-output-to-string
+                        (with-current-buffer
+                            standard-output
+                          (setq exitstatus (call-process shell-file-name nil t nil shell-command-switch command))))))
+         (unless (= 0 exitstatus)
+           (funcall on-error exitstatus output))
+         output))
+
      (defun bundler-gems-list ()
        "Lists gems used by bundler"
        (let ((bundler-root (bundler-find-Gemfile-root)))
          (when (not bundler-root)
            (message  "Can't find bundler Gemfile")
            (signal 'quit nil ))
-         (let* ((lines (split-string (shell-command-to-string (format "cd %S && bundle list" bundler-root)) "\n"))
+         (let* ((command (format "cd %S && bundle list" bundler-root))
+                (output (bundler/shell-command-to-string command
+                                                         (lambda (exitstatus output) (error "%S returned exit status %d, output:\n%s" command exitstatus output))))
+                (lines (split-string output "\n"))
                 (gem-lines (rest lines))
                 (gems (mapcar (lambda (line)
                                 (replace-regexp-in-string "^ *\\* *\\(.*?\\) (.+) *$" "\\1" line))
@@ -52,8 +67,4 @@
      (defun bundler-prompt-for-gem ()
        (let ((response (ido-completing-read "Gem: "
                                             (bundler-gems-list))))
-         (when response (list response))))
-
-
-
-     ))
+         (when response (list response))))))
