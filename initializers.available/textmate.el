@@ -49,14 +49,14 @@
         isearch-string  (regexp-quote text)
         isearch-message (mapconcat 'isearch-text-char-description isearch-string "")
         query-replace-defaults (cons text (cdr query-replace-defaults)))
-  (setq mark-active nil))
+  (deactivate-mark))
 
 (defun textmate-replace-string-save (&optional p1 p2)
   "Copy the current selection to the search buffer"
   (interactive "*r")
   (setq text (if mark-active (buffer-substring p1 p2) "")
         query-replace-defaults (cons (car query-replace-defaults) text))
-  (setq mark-active nil))
+  (deactivate-mark))
 
 (defun textmate-replace-string ()
   (cdr query-replace-defaults))
