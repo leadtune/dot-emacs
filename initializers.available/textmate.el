@@ -6,12 +6,11 @@
   "Insert a new line after the current line (c-a enter)"
   (interactive)
   (end-of-line)
-  (reindent-then-newline-and-indent))
+  (newline-and-indent))
 
 (defun cr-before-line (&optional stuff)
   "Insert a new line after the current line (c-p c-a enter)"
   (interactive)
-  (indent-according-to-mode)
   (if (= (line-number-at-pos) 1)
       (progn
         (beginning-of-line)
