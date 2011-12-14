@@ -19,7 +19,6 @@
      (define-key ruby-mode-map (kbd "C-c C-e") 'ruby-send-last-sexp)
      (define-key ruby-mode-map (kbd "C-c C-d") 'ruby-send-definition)
      (define-key ruby-mode-map (kbd "TAB") nil)
-     (define-key ruby-mode-map (kbd "M-TAB") 'inf-ruby-bond-complete-or-tab)
 
      (defun bundler-find-Gemfile-root (&optional directory)
        "Finds the Gemfile of the project by walking the directory tree until it finds a Gemfile."
