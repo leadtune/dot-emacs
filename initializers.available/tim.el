@@ -4,17 +4,18 @@
 ;; (global-set-key (kbd "s-;") 'dabbrev-expand)
 (global-set-key (kbd "s-b") 'switch-to-buffer)
 
-(defun tim/path-with-line (&optional root)
-   (let* ((root (or root (textmate-project-root)))
+(defun tim/path (&optional root)
+  (let* ((root (or root (textmate-project-root)))
          (filename (buffer-file-name))
          (local-filename (if root
                              (replace-regexp-in-string (format "^%s" (regexp-quote root)) "./" filename)
-                           filename))
-         (location (format "%s:%d"
-                           local-filename
-                           (line-number-at-pos))))
-    (message "%s" location)
-    (kill-new location)))
+                           filename)))
+    (message "%s" local-filename)))
+
+(defun tim/path-with-line (&optional root)
+  (message "%s" (format "%s:%d"
+                        (tim/path root)
+                        (line-number-at-pos))))
 
 (defun yank-path-with-line ()
   (interactive)
