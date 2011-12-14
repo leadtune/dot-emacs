@@ -87,13 +87,11 @@
 
 (load (concat dotfiles-dir "initializers.el"))
 
-(setenv "rvm_path" "/Users/timcharper/Developer/.rvm")
 (setenv "PATH" (format "%s/bin:%s/Developer/bin:%s"
                        (getenv "HOME")
                        (getenv "HOME")
                        (getenv "PATH")))
 
-(rvm-use "1.9.2" "*default*")
 (server-start)
 (color-theme-ir-black)
 (icomplete-mode t)
