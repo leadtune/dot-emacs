@@ -56,27 +56,25 @@
   (let ((*textmate-project-root* "/Users/timcharper/.emacs.d/"))
     (textmate-goto-file)))
 
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;;;;;;;;;;;;;;;;;;;
-;; Increment decimal a number under the point
-;; doesn't exactly work with negative numbers.
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Increment decimal a number under / before the point
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun increment-number-at-point (arg)
   (interactive "p")
+    (interactive "p")
+  "Modify number at point by arg"
   (skip-chars-backward "0123456789")
-  (or (looking-at "[0123456789]+")
+  (skip-chars-backward "-")
+  (or (looking-at "-?[0123456789]+")
       (error "No number at point"))
   (replace-match (number-to-string (+ (string-to-number (match-string 0)) (or arg 1)))))
 
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;;;;;;;;;;;;;;;;;;;
-;; Decrement decimal a number under the point
-;; doesn't exactly work with negative numbers.
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Decrement decimal a number under / before the point
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun decrement-number-at-point (arg)
   (interactive "p")
-  (skip-chars-backward "0123456789")
-  (or (looking-at "[0123456789]+")
-      (error "No number at point"))
-  (replace-match (number-to-string (- (string-to-number (match-string 0)) (or arg 1)))))
+  (increment-number-at-point (* -1 arg)))
 
 (global-set-key (kbd "C-c +") 'increment-number-at-point)
 (global-set-key (kbd "C-c -") 'decrement-number-at-point)
