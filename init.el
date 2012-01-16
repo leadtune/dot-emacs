@@ -8,7 +8,6 @@
 (load autoload-file)
 ;;;;
 
-(setq custom-file (format "%s/%s-custom.el" user-emacs-directory user-login-name))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -29,9 +28,15 @@
 (ensure-packages-installed
  '(starter-kit starter-kit-bindings starter-kit-eshell))
 
+
 (load (concat dotfiles-dir "initializers.el"))
 (ini-load-all)
 
+;; TODO: move custom file to esk-user-dir.. Need to figure out how to
+;;load the initializers before esk loads everything in esk-user-dir to
+;;prevent errors...
+;;(setq custom-file (concat esk-user-dir "custom.el"))
+(setq custom-file (format "%s%s-custom.el" user-emacs-directory user-login-name))
 (load custom-file 'noerror)
 
 (server-start)
