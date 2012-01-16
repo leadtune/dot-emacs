@@ -1,3 +1,5 @@
+(add-to-list 'load-path (concat user-emacs-directory  "vendor"))
+
 (defun ini-mtime (filename)
   "Return the mtime of the specified filename, following symlinks as appropriate"
   (let* ((attributes (file-attributes filename))
@@ -23,9 +25,10 @@
 (defun ini-load (filename)
   (load-file (ini-pick-latest-version filename)))
 
+(defun ini-load-all ()
 ;;; load all the files in the initializers.enabled/ directory
-(let* ((ini-directory (concat dotfiles-dir "initializers.enabled/"))
-       (files (sort (directory-files ini-directory nil "^.*\\.el$") 'string<)))
-  (dolist (file files)
-    (ini-load (concat ini-directory file))))
+  (let* ((ini-directory (concat user-emacs-directory  "initializers.enabled/"))
+         (files (sort (directory-files ini-directory nil "^.*\\.el$") 'string<)))
+    (dolist (file files)
+      (ini-load (concat ini-directory file)))))
 
