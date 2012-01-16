@@ -1,3 +1,4 @@
+(ensure-packages-installed '(yasnippet))
 (require 'yasnippet)
 
 (setq yas/root-directory (concat dotfiles-dir "snippets"))
