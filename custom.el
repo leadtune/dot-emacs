@@ -37,6 +37,8 @@
  '(evil-want-fine-undo t)
  '(exec-path (quote ("/Users/timcharper/bin" "/usr/bin" "/bin" "/usr/sbin" "/sbin" "/usr/local/bin" "/usr/X11/bin" "/usr/local/git/bin" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/local/texlive/2009/bin/universal-darwin/" "/opt/local/bin")))
  '(ffap-machine-p-known (quote reject))
+ '(exec-path (quote ("~/bin" "/usr/bin" "/bin" "/usr/sbin" "/sbin" "/usr/local/bin" "/usr/X11/bin" "/usr/local/git/bin" "/Applications/Emacs.app/Contents/MacOS/bin" "/opt/local/bin")))
+ '(ffap-machine-p-known (quote reject)) ; so ido-use-filename-at-point doesn't try to ping strange domains
  '(global-auto-revert-mode t)
  '(gnuserv-program (concat exec-directory "/gnuserv"))
  '(hl-paren-background-colors nil)
@@ -54,6 +56,7 @@
  '(mouse-wheel-scroll-amount (quote (1 ((shift) . 1) ((control)))))
  '(path-to-ctags "/Users/timcharper/Developer/bin/ctags")
  '(preview-transparent-color "black")
+ '(quack-programs (quote ("mzscheme" "bigloo" "csi" "csi -hygienic" "gosh" "gracket" "gsi" "gsi ~~/syntax-case.scm -" "guile" "kawa" "mit-scheme" "racket" "racket -il typed/racket" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi")))
  '(quack-remap-find-file-bindings-p nil)
  '(rails-indent-and-complete nil)
  '(rails-minor-mode-prefix-key " ;")

@@ -22,9 +22,6 @@
 [submodule "vendor/yaml-mode"]
 	path = vendor/yaml-mode
 	url = git://github.com/yoshiki/yaml-mode.git
-[submodule "vendor/rails-minor-mode"]
-	path = vendor/rails-minor-mode
-	url = git://github.com/remvee/emacs-rails.git
 [submodule "vendor/rhtml-minor-mode"]
 	path = vendor/rhtml-minor-mode
 	url = git://github.com/eschulte/rhtml.git
@@ -46,9 +43,6 @@
 [submodule "vendor/ess"]
 	path = vendor/ess
 	url = https://github.com/emacsmirror/ess.git
-[submodule "vendor/durendal"]
-	path = vendor/durendal
-	url = https://github.com/technomancy/durendal.git
 [submodule "vendor/auto-complete"]
 	path = vendor/auto-complete
 	url = git://github.com/timcharper/auto-complete.git
@@ -58,3 +52,9 @@
 [submodule "vendor/evil-surround"]
 	path = vendor/evil-surround
 	url = git://github.com/timcharper/evil-surround.git
+[submodule "vendor/rails-minor-mode"]
+	path = vendor/rails-minor-mode
+	url = git://github.com/timcharper/emacs-rails.git
+[submodule "vendor/matlab-emacs"]
+	path = vendor/matlab-emacs
+	url = https://github.com/ruediger/matlab-emacs.git
