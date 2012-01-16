@@ -49,3 +49,6 @@
 [submodule "vendor/rails-minor-mode"]
 	path = vendor/rails-minor-mode
 	url = git://github.com/timcharper/emacs-rails.git
+[submodule "vendor/matlab-emacs"]
+	path = vendor/matlab-emacs
+	url = https://github.com/ruediger/matlab-emacs.git
