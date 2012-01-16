@@ -1,8 +1,8 @@
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(LaTeX-command "latex")
  '(ack-project-root-file-patterns (quote (".project\\'" ".xcodeproj\\'" ".sln\\'" "\\`Project.ede\\'" "\\`.git\\'" "\\`.bzr\\'" "\\`_darcs\\'" "\\`.hg\\'" ".dir-locals" ".emacs-project")))
  '(blink-cursor-mode t)
@@ -33,7 +33,7 @@
  '(rails-indent-and-complete nil)
  '(ruby-electric-expand-delimiters-list (quote (123 91 40 39 34 96)))
  '(rvm-executable "~/Developer/.rvm/bin/rvm")
- '(safe-local-variable-values (quote ((textmate-gf-exclude . "(/|^)(\\.+[^/]+|vendor|tmp|lib|log|classes|model-library|build)($|/)|(\\.xcodeproj|\\.nib|\\.framework|\\.app|\\.pbproj|\\.pbxproj|\\.xcode|\\.xcodeproj|\\.bundle|\\.pyc)(/|$)|(^\\./data)") (textmate-gf-exclude . "(/|^)(\\.+[^/]+|vendor|tmp|log|classes|build)($|/)|(\\.xcodeproj|\\.nib|\\.framework|\\.app|\\.pbproj|\\.pbxproj|\\.xcode|\\.xcodeproj|\\.bundle|\\.pyc)(/|$)") (textmate-gf-exclude . "(/|^)(\\.+[^/]+|vendor|tmp|lib|log|classes|model-library|filtered-datasets|data|build)($|/)|(\\.xcodeproj|\\.nib|\\.framework|\\.app|\\.pbproj|\\.pbxproj|\\.xcode|\\.xcodeproj|\\.bundle|\\.pyc)(/|$)") (textmate-project-roots ".dir-locals.el") (ack-arguments "--ignore-dir=ruby") (*textmate-gf-exclude* . "/\\.|vendor|ruby/gems|classes|fixtures|tmp|log|build|\\.xcodeproj|\\.nib|\\.framework|\\.app|\\.pbproj|\\.pbxproj|\\.xcode|\\.xcodeproj|\\.bundle|\\.pyc") (ruby-compilation-executable . "ruby") (ruby-compilation-executable . "ruby1.8") (ruby-compilation-executable . "ruby1.9") (ruby-compilation-executable . "rbx") (ruby-compilation-executable . "jruby"))))
+ '(safe-local-variable-values (quote ((textmate-gf-exclude . "(/|^)(\\.+[^/]+|vendor|chefmaster|tmp|lib|log|classes|model-library|build)($|/)|(\\.xcodeproj|\\.nib|\\.framework|\\.app|\\.pbproj|\\.pbxproj|\\.xcode|\\.xcodeproj|\\.bundle|\\.pyc)(/|$)|(^\\./data)") (textmate-gf-exclude . "(/|^)(\\.+[^/]+|vendor|tmp|lib|log|classes|model-library|build)($|/)|(\\.xcodeproj|\\.nib|\\.framework|\\.app|\\.pbproj|\\.pbxproj|\\.xcode|\\.xcodeproj|\\.bundle|\\.pyc)(/|$)|(^\\./data)") (textmate-gf-exclude . "(/|^)(\\.+[^/]+|vendor|tmp|log|classes|build)($|/)|(\\.xcodeproj|\\.nib|\\.framework|\\.app|\\.pbproj|\\.pbxproj|\\.xcode|\\.xcodeproj|\\.bundle|\\.pyc)(/|$)") (textmate-gf-exclude . "(/|^)(\\.+[^/]+|vendor|tmp|lib|log|classes|model-library|filtered-datasets|data|build)($|/)|(\\.xcodeproj|\\.nib|\\.framework|\\.app|\\.pbproj|\\.pbxproj|\\.xcode|\\.xcodeproj|\\.bundle|\\.pyc)(/|$)") (textmate-project-roots ".dir-locals.el") (ack-arguments "--ignore-dir=ruby") (*textmate-gf-exclude* . "/\\.|vendor|ruby/gems|classes|fixtures|tmp|log|build|\\.xcodeproj|\\.nib|\\.framework|\\.app|\\.pbproj|\\.pbxproj|\\.xcode|\\.xcodeproj|\\.bundle|\\.pyc") (ruby-compilation-executable . "ruby") (ruby-compilation-executable . "ruby1.8") (ruby-compilation-executable . "ruby1.9") (ruby-compilation-executable . "rbx") (ruby-compilation-executable . "jruby"))))
  '(sentence-end-double-space nil)
  '(sh-basic-offset 2)
  '(sh-indentation 2)
@@ -59,10 +59,10 @@
  '(viper-vi-style-in-minibuffer nil))
 
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 (load (concat dotfiles-dir "initializers.el"))
@@ -80,4 +80,3 @@
 (define-key viper-insert-basic-map (kbd "C-n") 'auto-complete-or-show-menu)
 
 ;(global-set-key (kbd "s-:") 'auto-complete-or-show-menu)
-
