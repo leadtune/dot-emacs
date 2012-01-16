@@ -1,4 +1,5 @@
-(require 'color-theme)
+(ensure-packages-installed
+  '(color-theme))
 
 (let* ((theme-directory (concat dotfiles-dir "color-themes/"))
        (files (sort (directory-files theme-directory nil "^.*\\.el$") 'string<)))
@@ -7,4 +8,3 @@
       (cond ((file-readable-p (concat file "c"))
              (load-file (concat file "c")))
             (t (load-file file))))))
-  
