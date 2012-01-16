@@ -22,3 +22,5 @@ tramp
 .\#*
 TAGS
 ac-comphist.dat
+swank
+ede-projects.el
