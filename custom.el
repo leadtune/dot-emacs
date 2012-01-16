@@ -88,13 +88,10 @@
   ;; If there is more than one, they won't work right.
  '(hl-line ((t (:inherit highlight :background "#302500")))))
 
-(load (concat dotfiles-dir "initializers.el"))
-
 (setenv "PATH" (format "%s/bin:%s/Developer/bin:%s"
                        (getenv "HOME")
                        (getenv "HOME")
                        (getenv "PATH")))
 
-(server-start)
 (color-theme-ir-black)
 (icomplete-mode t)
