@@ -1,5 +1,8 @@
 (add-to-list 'load-path user-emacs-directory)
 
+(setq custom-file (format "%s%s/custom.el" user-emacs-directory user-login-name))
+
+
 ;; old starter kit legacy code...
 ;;TODO: remove dependece on the following lines and rm -rf corresponding files...
 (setq dotfiles-dir user-emacs-directory)
@@ -25,18 +28,21 @@
   (when (not (package-installed-p p))
     (package-install p))))
 
-(ensure-packages-installed
- '(starter-kit starter-kit-bindings starter-kit-eshell))
+;; TODO: Switch to the package once a release is made... right now we rely on unreleased changes
+;;(ensure-packages-installed
+;; '(starter-kit starter-kit-bindings starter-kit-eshell))
 
+;; TODO: remove when new starter kit package is available
+(ensure-packages-installed
+ '(paredit idle-highlight-mode find-file-in-project smex ido-ubiquitous magit))
+(add-to-list 'load-path (concat user-emacs-directory "vendor/emacs-starter-kit"))
+(add-to-list 'load-path (concat user-emacs-directory "vendor/emacs-starter-kit/modules"))
+(mapc 'require '(starter-kit starter-kit-bindings starter-kit-eshell))
+;;;
+
+(setq custom-file (concat esk-user-dir "custom.el"))
 
 (load (concat dotfiles-dir "initializers.el"))
 (ini-load-all)
-
-;; TODO: move custom file to esk-user-dir.. Need to figure out how to
-;;load the initializers before esk loads everything in esk-user-dir to
-;;prevent errors...
-;;(setq custom-file (concat esk-user-dir "custom.el"))
-(setq custom-file (format "%s%s-custom.el" user-emacs-directory user-login-name))
-(load custom-file 'noerror)
 
 (server-start)

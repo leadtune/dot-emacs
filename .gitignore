@@ -24,3 +24,4 @@ TAGS
 ac-comphist.dat
 scratch/
 .smex-items
+elpa/*
