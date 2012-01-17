@@ -1,8 +1,5 @@
 (add-to-list 'load-path user-emacs-directory)
 
-(setq custom-file (format "%s%s/custom.el" user-emacs-directory user-login-name))
-
-
 ;; old starter kit legacy code...
 ;;TODO: remove dependece on the following lines and rm -rf corresponding files...
 (setq dotfiles-dir user-emacs-directory)
@@ -40,7 +37,7 @@
 (mapc 'require '(starter-kit starter-kit-bindings starter-kit-eshell))
 ;;;
 
-(setq custom-file (concat esk-user-dir "custom.el"))
+(setq custom-file (concat esk-user-dir "/custom.el"))
 
 (load (concat dotfiles-dir "initializers.el"))
 (ini-load-all)
