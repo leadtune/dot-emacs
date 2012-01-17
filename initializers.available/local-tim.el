@@ -75,7 +75,7 @@
 
 (setq ispell-extra-args '("--sug-mode=ultra"))
 
-(global-set-key (kbd "C-h") 'delete-backward-char)
+;;(global-set-key (kbd "C-h") 'delete-backward-char)
 (put 'narrow-to-region 'disabled nil)
 (show-paren-mode 1)
 (global-visual-line-mode)
