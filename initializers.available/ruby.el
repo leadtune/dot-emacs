@@ -1,3 +1,11 @@
+(ensure-packages-installed
+  '(;;starter-kit-ruby - use this and remove vendor version when new version has been pushed to marmalade..
+       ruby-compilation
+       inf-ruby
+        ))
+
+(require 'starter-kit-ruby)
+
 (eval-after-load 'ruby-mode
   '(progn
      (require 'rspec-mode)
