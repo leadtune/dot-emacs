@@ -18,3 +18,7 @@ ace-jump-mode
 
 (require 'linum)
 (global-linum-mode)
+
+
+;; yes, I like paredit on in my REPL
+(add-hook 'slime-repl-mode-hook 'paredit-mode)
